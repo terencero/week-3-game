@@ -1,0 +1,28 @@
+.content-wrapper {
+	width: 80%;
+	border: black solid 2px;
+	position: relative;
+}
+.word-wrapper {
+	width: 50%;
+	border: black solid 2px;
+	float: left;
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+
+}
+.image-wrapper {
+	width: 50%;
+	border: black solid 2px;
+	float: left;
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+}
+.image-wrapper p {
+	height: 300px;
+	width: 300px;
+	border: black solid 2px;
+	margin: 0 auto;
+}

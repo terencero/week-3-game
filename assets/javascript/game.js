@@ -16,7 +16,9 @@ var currentWord {
 	word2: 'plato',
 	word3: 'aristotle',
 	word4: 'descartes',
-	word5: 'nietzsche'
+	word5: 'nietzsche',
+
+	
 }
 
 
