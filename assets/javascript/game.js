@@ -1,11 +1,7 @@
  // name.join? 
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
 
-  
-});
  var keys = ['s', 'o', 'c', 'r', 'a', 't', 'e', 'p', 'l', 'i',
  'd', 'n', 'z', 'h'];
 
@@ -15,13 +11,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 var wordsArray = [ 'socrates', 'plato', 'aristotle', 'descartes', 'nietzsche' ];
 
+document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM fully loaded and parsed");
+var result = [Math.floor((Math.random() * wordsArray.length))];
+  
+
+
+
+
 // Captures Key Clicks; onkeyup must be below math.random or else game will
 // reset every time any key is pressed
-
-
-var result = [Math.floor((Math.random() * wordsArray.length))];
-
-
 document.onkeyup = function(event) {
 var word = wordsArray[result];
 
@@ -29,10 +28,13 @@ var wordslength = wordsArray.length;
 
 var wordDisplay = document.getElementById('word-line');
 
+// array bucket for dashes
 var hits = [];
 
+// array bucket for ?? not currently being used...
 var letters = [];
 
+// need to put user guessed letters that are wrong here
 var letterGuessed = document.getElementById('guessed');
 
 // Determines which exact key was selected. Make it lowercase
@@ -44,10 +46,11 @@ console.log(word);
 console.log(word.length);
 	
 function setCurrentWord(){
-	
-	for (var i = 0; i < word.length; i++ ) {
+	var word = [];
+	for (var i = 0; i < word.substr.length; i++ ) {
 		var dash = '_ ';
-		hits.push(dash)
+		hits.push(dash);
+		
 		wordDisplay.innerHTML = hits;
  	}
 }
@@ -56,20 +59,23 @@ setCurrentWord();
 function compareInput(){
 	if (word.indexOf(userInput) > -1) {
 		letters.push(userInput);
+
  		wordDisplay.innerHTML = letters;
  	} else {
- 		//wordDisplay.innerHTML = '_ ';
+ 		wordDisplay.innerHTML = hits;
  	}
 }
 
 
 compareInput();
 }
+
+});
 // function reset() {
 
 // }
 
-
+// below this comment line are code blocks under consideration 
 	// if (word) {
 	// 	//var dashes = wordDisplay.innerHTML = '_ _ _ _ _ _ _ _';
 	// 	//console.log(dashes);
@@ -88,18 +94,6 @@ compareInput();
 		//  if (userInput === 'o') {
 		// 	wordDisplay.innerHTML = '_ o _ _ _ _ _ _';
 		// } 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	// 	if (userInput === 'c') {
