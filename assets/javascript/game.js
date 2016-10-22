@@ -1,81 +1,95 @@
  // name.join? 
 
 
-//$( document ).ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM fully loaded and parsed");
+
+  
+});
  var keys = ['s', 'o', 'c', 'r', 'a', 't', 'e', 'p', 'l', 'i',
  'd', 'n', 'z', 'h'];
 
+
+
 // array containing words and answers
 
-var wordsArray = [
-	'socrates',
-	'plato',
-	'aristotle',
-	'descartes',
-	'nietzsche'
-];
+var wordsArray = [ 'socrates', 'plato', 'aristotle', 'descartes', 'nietzsche' ];
 
-
-
-var result = [Math.floor((Math.random() * wordsArray.length))];
 // Captures Key Clicks; onkeyup must be below math.random or else game will
 // reset every time any key is pressed
 
 
+var result = [Math.floor((Math.random() * wordsArray.length))];
+
+
 document.onkeyup = function(event) {
-
-
-
 var word = wordsArray[result];
+
+var wordslength = wordsArray.length;
 
 var wordDisplay = document.getElementById('word-line');
 
 var hits = [];
+
+var letters = [];
 
 var letterGuessed = document.getElementById('guessed');
 
 // Determines which exact key was selected. Make it lowercase
 var userInput = String.fromCharCode(event.keyCode).toLowerCase();
 
-var userGuess = [''];
-
 
 
 console.log(word);
 console.log(word.length);
 	
-// function setCurrentWord(){
-// 	
+function setCurrentWord(){
+	
+	for (var i = 0; i < word.length; i++ ) {
+		var dash = '_ ';
+		hits.push(dash)
+		wordDisplay.innerHTML = hits;
+ 	}
+}
+setCurrentWord();
 
-// }
+function compareInput(){
+	if (word.indexOf(userInput) > -1) {
+		letters.push(userInput);
+ 		wordDisplay.innerHTML = letters;
+ 	} else {
+ 		//wordDisplay.innerHTML = '_ ';
+ 	}
+}
 
-// function compareInput(){
 
-// }
-
+compareInput();
+}
 // function reset() {
 
 // }
 
 
+	// if (word) {
+	// 	//var dashes = wordDisplay.innerHTML = '_ _ _ _ _ _ _ _';
+	// 	//console.log(dashes);
+	// for (var i = 0; i < word.length; i++ ) {
+	// 		var dash = '_ ';
+	// 		hits.push(dash);
+
+	// 	}
+		
+		//wordDisplay.innerHTML = hits;
+		
+
+		// if (userInput === 's'){
+		// 	wordDisplay.innerHTML = 's _ _ _ _ _ _ _';
+		// }
+		//  if (userInput === 'o') {
+		// 	wordDisplay.innerHTML = '_ o _ _ _ _ _ _';
+		// } 
 
 
-	if (word === 'socrates') {
-		// var dashes = wordDisplay.innerHTML = '_ _ _ _ _ _ _ _';
-	for (var i = 0; i < word.length; i++ ) {
-		var d = '_ ';
-		hits.push(d);
-
-		}
-		wordDisplay.innerHTML = hits;
-
-		if (userInput === 's'){
-			wordDisplay.innerHTML = 's _ _ _ _ _ _ _';
-		}
-		 if (userInput === 'o') {
-			wordDisplay.innerHTML = '_ o _ _ _ _ _ _';
-		} 
-}
 
 
 
@@ -110,7 +124,7 @@ console.log(word.length);
 	// 	var dashes = wordDisplay.innerHTML = '_ _ _ _ _ _ _ _ _';
 	// }
 
- }
+  
 
 // function()
 
